@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ user.login }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5" xmlns="http://www.w3.org/1999/html">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    <table border="0" class="profile-table">
+        <tr><td valign="top">
+            <div class="profile-ava"><img src="{{ url_for('userava') }}" width="150" height="150"></div>
+            <div class="profile-load">
+                <form method="post">
+                    <p><input type="file" name="file">
+                    <p><a href="/upload" type="submit"  class="w-10 btn rounded-3 btn-primary">Загрузить</a>
+                </form>
+            </div>
+        </td>
+            <td valign="top" class="profile-panel">
+                <p><a href="/logout">Выйти из профиля</a>
+                <ul class="profile-info">
+                <li>Имя: {{ user.name }}</li>
+                <li> Email: {{ user.email }}</li>
+            </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Удалить аккаунт
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Удаление...</h1>
+    <div class="alert alert-info">
+        <p>{{ accounts.email }}</p>
+        <p><b>Дата: {{ accounts.date_create.date() }}</b></p>
+    </div>
+</div>
+{% endblock %}

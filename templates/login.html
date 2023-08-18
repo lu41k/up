@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Войти
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5" xmlns="http://www.w3.org/1999/html">
+    <h2>Вход</h2>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Войди, чтобы продолжить</h1>
+        <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" href="/"></a>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form method="post">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-3" name="email" id="email" placeholder="name@example.com">
+            <label for="email">Почта (name@example.com)</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="password" name="password" placeholder="Password">
+            <label for="password">Пароль (Password)</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Войти</button>
+            <small class="text-body-secondary"> Нажимая Зарегистрироваться, вы соглашаетесь с условиями использования.</small>
+            <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" name="remember-me"> Запомнить аккаунт
+          </label>
+        </div>
+            <h6 class="text-body-secondary"> Если нету аккаунта, то можно <a href="/login/register">зарегистироваться</a></h6>
+        </form>
+      </div>
+    </div>
+
+
+</div>
+{% endblock %}

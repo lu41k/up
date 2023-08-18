@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Обновление аккаунта
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Обновление аккаунта</h1>
+    <form method="post">
+        <h2>Новый email (example@mail.ru):</h2>
+        <input type="text" name="email" id="email" class="form-control" value="{{ accounts.email }}" placeholder="Введите email"><br>
+        <input type="submit" class="btn btn-success" value="Обновить">
+    </form>
+</div>
+{% endblock %}

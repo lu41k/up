@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Все аккаунты на сайте
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Все аккаунты на сайте</h1>
+
+    {% if accounts|length > 0 %}
+        {% for el in accounts %}
+        <div class="alert alert-info">
+            <h2>{{ el.email }}</h2>
+            <p>{{ el.password }}</p>
+            <p><b>Дата: {{ el.date_create.date() }}</b></p>
+            <a href="/accounts/{{ el.id }}" class="btn btn-warning">Детальнее</a>
+        </div>
+        {% endfor %}
+    {% else %}
+    <p>У нас нет еще аккаунтов на сайте</p>
+    {% endif %}
+</div>
+{% endblock %}

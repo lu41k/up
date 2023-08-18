@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Удалить статью
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Удаление...</h1>
+    <div class="alert alert-info">
+        <p>{{ article.text }}</p>
+        <p><b>Дата: {{ article.date.date() }}</b></p>
+    </div>
+</div>
+{% endblock %}
